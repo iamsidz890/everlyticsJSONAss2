@@ -1,68 +1,77 @@
 import React from "react";
-
+import './table.css'
 const data = require("./data");
 
 const Table = () => {
   const dataImport = data[0];
+  const dataImport1 = data[1];
+  const dataImport2 = data[2];
 
-  function renderHeaderCells() {
-    let headerCells = [];
+  
 
-    Object.keys(dataImport).map((x, i) => {
-      let items = Object.values(dataImport)[i];
-      headerCells.push(
-        <th colSpan={Object.keys(items).length} key={i.name}>
-          {x}
-        </th>
-      );
-      return headerCells;
-    });
-    return headerCells;
-  }
-
-  function renderSubHeaders() {
-    let subHeaders = [];
-    let subs = Object.values(dataImport);
-
-    subs.map((x, i) => {
-      if (subs[i] !== undefined) {
-        Object.keys(subs[i]).map(y => {
-          subHeaders.push(<td>{y}</td>);
-          return subHeaders;
-        });
-      }
-      return subHeaders;
-    });
-    return subHeaders;
-  }
-
-  function renderResults() {
-    let results = [];
+  function row1() {
+    let rowcell = [];
     let res = Object.values(dataImport);
 
     res.map((x, i) => {
-      if (res[i] !== undefined) {
+       
         Object.values(res[i]).map(y => {
-          results.push(<td>{y}</td>);
-          return results;
+          rowcell.push(<td>{y}</td>);
+          return rowcell;
         });
-      }
-      return results;
+      
+      return rowcell;
     });
 
-    return results;
+    return rowcell;
   }
+
+
+   function row2() {
+    let rowcell2 = [];
+    let res = Object.values(dataImport1);
+
+    res.map((x, i) => {
+       
+        Object.values(res[i]).map(y => {
+          rowcell2.push(<td>{y}</td>);
+          return rowcell2;
+        });
+      
+      return rowcell2;
+    });
+
+    return rowcell2;
+  }
+   function row3() {
+    let rowcell3 = [];
+    let res = Object.values(dataImport2);
+
+    res.map((x, i) => {
+       
+        Object.values(res[i]).map(y => {
+          rowcell3.push(<td>{y}</td>);
+          return rowcell3;
+        });
+      
+      return rowcell3;
+    });
+
+    return rowcell3;
+  }
+
+  
 
   return (
     <React.Fragment>
-      <p>Fruit Basket</p>
-      <table>
+      <h1>Everlytics assignment 2</h1>
+       <table>
         <thead>
-          <tr>{renderHeaderCells()}</tr>
+          <tr>{row1()}</tr>
         </thead>
         <tbody>
-          <tr>{renderSubHeaders()}</tr>
-          <tr>{renderResults()}</tr>
+          <tr>{row2()}</tr>
+          <tr>{row3()}</tr>
         </tbody>
       </table>
     </React.Fragment>
@@ -70,6 +79,3 @@ const Table = () => {
 };
 
 export default Table;
-
-
-

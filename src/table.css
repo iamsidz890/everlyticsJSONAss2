@@ -1,3 +1,5 @@
-*{
-    text-align: center;
+thead,
+tbody {
+	background: silver;
+	padding: 18px;
 }
